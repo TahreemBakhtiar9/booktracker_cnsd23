@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 @Repository
 public class BookRepository implements IBookRepository<Book> {
@@ -25,4 +26,15 @@ public class BookRepository implements IBookRepository<Book> {
         return this.booklistrepo.values();
     }
 
+    @Override
+    public void delete(Book book) {
+        this.booklistrepo.remove(book.getId(), book);
+
+}
+
+   
+
+    // public Collection<Book> removeById() {
+    //     return null;
+    // }
 }
